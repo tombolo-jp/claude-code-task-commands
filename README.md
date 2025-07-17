@@ -24,7 +24,7 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 ```
 - **機能**: 新しいタスクの環境準備と要件ヒアリング
 - **用途**: プロジェクトの新機能開発や、課題対応の開始時
-- **作成ファイル**: `.claude/tasks/{task_name}/requirements.md`
+- **作成ファイル**: `.claude/tasks/{your-task-name}/requirements.md`
 
 コマンド実行後、作成された要件定義ファイル `requirements.md` を直接編集し、具体的な要件を記載してください。
 
@@ -34,7 +34,7 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 ```
 - **機能**: 既存システムを分析し、詳細設計を作成
 - **用途**: 要件定義後の技術的設計
-- **作成ファイル**: `.claude/tasks/{task_name}/design.md`
+- **作成ファイル**: `.claude/tasks/{your-task-name}/design.md`
 
 詳細設計ファイル `design.md` が作成されます。内容を確認し、必要に応じて修正してください。
 
@@ -44,7 +44,7 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 ```
 - **機能**: 詳細設計に基づく実装作業のタスクを分解
 - **用途**: 開発作業の具体的な計画立案
-- **作成ファイル**: `.claude/tasks/{task_name}/todo.md`
+- **作成ファイル**: `.claude/tasks/{your-task-name}/todo.md`
 
 ToDoリストファイル `todo.md` が作成されます。内容を確認し、必要に応じて修正してください。
 
