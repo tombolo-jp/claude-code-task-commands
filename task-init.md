@@ -19,6 +19,7 @@
 - `.claude/tasks/$ARGUMENTS/requirements.md` ファイル（テンプレート内容付き）
 - `.claude/tasks/$ARGUMENTS/design.md` ファイル（空ファイル）
 - `.claude/tasks/$ARGUMENTS/todo.md` ファイル（空ファイル）
+- `.claude/tasks/$ARGUMENTS/estimate.md` ファイル（空ファイル）
 
 requirements.mdファイルには以下の内容を含めてください：
 
