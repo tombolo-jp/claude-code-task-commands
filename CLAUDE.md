@@ -4,25 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This repository contains a collection of custom slash commands for Claude Code that implement a task-based development workflow. The commands provide a structured approach to software development with four distinct phases: initialization, design, planning, and implementation.
+This repository contains a collection of custom slash commands for Claude Code that implement a task-based development workflow. The commands provide a structured approach to software development with 6 distinct phases: initialization, design, planning, estimation, and implementation.
 
 ## Command Architecture
 
-The repository contains four interconnected slash commands that work together:
+The repository contains 6 interconnected slash commands that work together:
 
-1. **task-init.md** - Creates task environment and requirements gathering
-2. **task-design.md** - Analyzes existing systems and creates technical design
-3. **task-todo.md** - Breaks down design into actionable development tasks
-4. **task-develop.md** - Executes implementation based on todo list
+1. **task-design.md** - Analyzes existing systems and creates technical design
+2. **task-develop.md** - Executes implementation based on todo list
+3. **task-estimate.md** - Provides effort estimation for manual implementation
+4. **task-init.md** - Creates task environment and requirements gathering
+5. **task-req.md** - Creates requirements draft from raw customer requests
+6. **task-todo.md** - Breaks down design into actionable development tasks
 
 ## Task Management Structure
 
 Each task follows a standardized directory structure:
 ```
 .claude/tasks/{task_name}/
+├── init.md         # Raw customer requests
 ├── requirements.md  # Requirements definition
 ├── design.md       # Technical design
-└── todo.md         # Implementation todo list
+├── todo.md         # Implementation todo list
+└── estimate.md     # Effort estimation
 ```
 
 ## Key Command Behaviors
@@ -30,7 +34,13 @@ Each task follows a standardized directory structure:
 ### /task-init {task_name}
 - Creates `.claude/tasks/{task_name}/` directory structure
 - Generates templated requirements.md with sections for overview, background, functional/non-functional requirements, impact analysis, constraints, and system relationships
-- Creates empty design.md and todo.md files
+- Creates empty design.md, todo.md, and estimate.md files
+- Creates init.md for capturing raw customer requests
+
+### /task-req {task_name}
+- Reads raw customer requests from init.md
+- Analyzes and structures the information into requirements.md
+- Creates a draft requirements document from ambiguous requests
 
 ### /task-design {task_name}
 - Reads requirements.md to understand task scope
@@ -42,8 +52,14 @@ Each task follows a standardized directory structure:
 - Creates structured todo.md with implementation order, task breakdown, deliverables, priorities, time estimates, and checkpoints
 - Considers dependencies and development efficiency
 
+### /task-estimate {task_name}
+- Reads requirements.md, design.md, and todo.md to understand task scope
+- Creates comprehensive effort estimation for manual implementation by intermediate-level programmers
+- Includes risk factors, buffers, and realistic time estimates
+- Provides schedule recommendations and resource planning
+
 ### /task-develop {task_name}
-- Reads both design.md and todo.md
+- Reads design.md and todo.md to understand implementation requirements
 - Implements tasks sequentially following the todo list
 - Maintains code quality, follows existing patterns, includes appropriate tests
 - Reports progress after each task completion
@@ -65,3 +81,25 @@ The commands support Japanese language for requirements definition and design do
 - **Quality Focus**: Emphasizes code quality, maintainability, and integration with existing systems
 - **Progress Tracking**: Concrete todo lists for work management
 - **Consistency**: Respects existing code patterns and conventions
+
+## Claude Codeへの重要な指示
+
+### コマンドファイル更新時の自動処理
+task-*.mdファイルを追加・変更・削除した場合は、必ず以下を実行してください：
+
+1. CLAUDE.mdの「Command Architecture」セクションを更新
+   - コマンド数を正確に反映（「6 distinct phases」等の数値を更新）
+   - コマンドリストを更新（ファイル名のアルファベット順）
+   - 新規コマンドの説明を追加
+
+2. 更新履歴の記録
+   - 「更新履歴」セクションに日時と変更内容を記録
+   - フォーマット: 最終更新: YYYY-MM-DD HH:MM:SS
+   - 更新内容: [具体的な変更内容]
+
+この指示は自動的に実行されるべきもので、ユーザーの追加指示は不要です。
+
+## 更新履歴
+
+最終更新: 2025-07-23 03:08:00
+更新内容: 自動更新機能を削除し、Claude Codeへの指示に置換。task-req.mdコマンドを追加（6個のコマンド）
