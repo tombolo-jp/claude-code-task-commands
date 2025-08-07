@@ -4,18 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This repository contains a collection of custom slash commands for Claude Code that implement a task-based development workflow. The commands provide a structured approach to software development with 6 distinct phases: initialization, design, planning, estimation, and implementation.
+This repository contains a collection of custom slash commands for Claude Code that implement a task-based development workflow. The commands provide a structured approach to software development with 5 distinct phases: initialization, design, planning, and implementation.
 
 ## Command Architecture
 
-The repository contains 6 interconnected slash commands that work together:
+The repository contains 5 interconnected slash commands that work together:
 
 1. **task-design.md** - Analyzes existing systems and creates technical design
-2. **task-develop.md** - Executes implementation based on todo list
-3. **task-estimate.md** - Provides effort estimation for manual implementation
-4. **task-init.md** - Creates task environment and requirements gathering
-5. **task-req.md** - Creates requirements draft from raw customer requests
-6. **task-todo.md** - Breaks down design into actionable development tasks
+2. **task-develop.md** - Executes implementation based on todo list and creates development report
+3. **task-init.md** - Creates task environment and requirements gathering
+4. **task-req.md** - Creates requirements draft from raw customer requests
+5. **task-todo.md** - Breaks down design into actionable development tasks with effort estimation
 
 ## Task Management Structure
 
@@ -25,8 +24,8 @@ Each task follows a standardized directory structure:
 ├── init.md         # Raw customer requests
 ├── requirements.md  # Requirements definition
 ├── design.md       # Technical design
-├── todo.md         # Implementation todo list
-└── estimate.md     # Effort estimation
+├── todo.md         # Implementation todo list with effort estimation
+└── develop-result.md # Development completion report
 ```
 
 ## Key Command Behaviors
@@ -34,7 +33,7 @@ Each task follows a standardized directory structure:
 ### /task-init {task_name}
 - Creates `.claude/tasks/{task_name}/` directory structure
 - Generates templated requirements.md with sections for overview, background, functional/non-functional requirements, impact analysis, constraints, and system relationships
-- Creates empty design.md, todo.md, and estimate.md files
+- Creates empty design.md, todo.md, and develop-result.md files
 - Creates init.md for capturing raw customer requests
 
 ### /task-req {task_name}
@@ -48,21 +47,18 @@ Each task follows a standardized directory structure:
 - Creates comprehensive design.md covering architecture, components, file structure, data design, API design, error handling, testing strategy, and performance/security considerations
 
 ### /task-todo {task_name}
-- Reads design.md to understand technical requirements
-- Creates structured todo.md with implementation order, task breakdown, deliverables, priorities, time estimates, and checkpoints
+- Reads requirements.md and design.md to understand technical requirements
+- Creates structured todo.md with implementation order, task breakdown, deliverables, priorities, and checkpoints
+- Performs comprehensive effort estimation for manual implementation by intermediate-level programmers
+- Includes risk factors, buffers, and realistic time estimates for each task
 - Considers dependencies and development efficiency
-
-### /task-estimate {task_name}
-- Reads requirements.md, design.md, and todo.md to understand task scope
-- Creates comprehensive effort estimation for manual implementation by intermediate-level programmers
-- Includes risk factors, buffers, and realistic time estimates
-- Provides schedule recommendations and resource planning
 
 ### /task-develop {task_name}
 - Reads design.md and todo.md to understand implementation requirements
 - Implements tasks sequentially following the todo list
 - Maintains code quality, follows existing patterns, includes appropriate tests
 - Reports progress after each task completion
+- Creates develop-result.md with implementation overview, changed files, technical details, and completion report
 
 ## Installation Method
 
@@ -123,5 +119,5 @@ task-*.mdファイルを追加・変更・削除した場合は、必ず以下�
 
 ## 更新履歴
 
-最終更新: 2025-07-23 03:44:00
-更新内容: README.md自動更新規則を追加。Claude Codeへの依頼時にREADME.mdを自動的に最新の状態に保つよう指示を追加
+最終更新: 2025-08-07 00:00:00
+更新内容: task-estimateコマンドを廃止し機能をtask-todoに統合。task-developにdevelop-result.md作成機能を追加。コマンド数を6から5に変更

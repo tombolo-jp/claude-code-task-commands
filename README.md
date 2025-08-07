@@ -49,32 +49,25 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 
 詳細設計ファイル `design.md` が作成されます。内容を確認し、必要に応じて修正してください。
 
-#### 4. **ToDoリスト作成** `/task-todo`
+#### 4. **ToDoリストと工数見積もり作成** `/task-todo`
 ```bash
 /task-todo your-task-name
 ```
-- **機能**: 詳細設計に基づく実装作業のタスクを分解
-- **用途**: 開発作業の具体的な計画立案
+- **機能**: 詳細設計に基づく実装作業のタスクを分解し、工数見積もりを実施
+- **用途**: 開発作業の具体的な計画立案と中級プログラマが手作業で実装する場合の工数算出
 - **作成ファイル**: `.claude/tasks/{your-task-name}/todo.md`
 
-ToDoリストファイル `todo.md` が作成されます。内容を確認し、必要に応じて修正してください。
+ToDoリストと工数見積もりを統合したファイル `todo.md` が作成されます。各タスクの見積もり時間、リスク要因、バッファを含みます。内容を確認し、必要に応じて修正してください。
 
-#### 5. **工数見積もり** `/task-estimate`
-```bash
-/task-estimate your-task-name
-```
-- **機能**: 要件定義・詳細設計・ToDoリストに基づく工数見積もり
-- **用途**: 中級プログラマ（業務経験5年程度）が手作業で実装する場合の工数を算出
-- **作成ファイル**: `.claude/tasks/{your-task-name}/estimate.md`
-
-工数見積もりファイル `estimate.md` が作成されます。内容を確認し、必要に応じて修正してください。
-
-#### 6. **開発実行** `/task-develop`
+#### 5. **開発実行** `/task-develop`
 ```bash
 /task-develop your-task-name
 ```
-- **機能**: ToDoリストに基づく段階的な実装
+- **機能**: ToDoリストに基づく段階的な実装と開発完了報告書の作成
 - **用途**: 実際の開発作業の実行
+- **作成ファイル**: `.claude/tasks/{your-task-name}/develop-result.md`
+
+開発完了後、実装概要、変更ファイル一覧、技術的詳細を含む報告書 `develop-result.md` が作成されます。
 
 ### ファイル構造
 
@@ -84,8 +77,8 @@ ToDoリストファイル `todo.md` が作成されます。内容を確認し�
 ├── init.md         # 要件ヒアリング
 ├── requirements.md  # 要件定義
 ├── design.md       # 詳細設計
-├── todo.md         # ToDoリスト
-└── estimate.md     # 工数見積もり
+├── todo.md         # ToDoリストと工数見積もり
+└── develop-result.md # 開発完了報告書
 ```
 
 ## ライセンス
