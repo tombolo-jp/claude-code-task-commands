@@ -20,7 +20,7 @@
 - `.claude/tasks/$ARGUMENTS/requirements.md` ファイル（テンプレート内容付き）
 - `.claude/tasks/$ARGUMENTS/design.md` ファイル（テンプレート内容付き）
 - `.claude/tasks/$ARGUMENTS/todo.md` ファイル（テンプレート内容付き）
-- `.claude/tasks/$ARGUMENTS/estimate.md` ファイル（テンプレート内容付き）
+- `.claude/tasks/$ARGUMENTS/develop-result.md` ファイル（テンプレート内容付き）
 
 init.mdファイルには以下の内容を含めてください：
 
@@ -28,7 +28,7 @@ init.mdファイルには以下の内容を含めてください：
 <!-- 要件定義の準備をします。このタスクの概要を、簡潔に入力してください。 -->
 ```
 
-design.md と todo.md と estimate.mdファイルには以下の内容を含めてください：
+design.md と todo.md と develop-result.mdファイルには以下の内容を含めてください：
 
 ```
 <!-- このファイルの内容はClaude Codeが自動生成します。 -->
