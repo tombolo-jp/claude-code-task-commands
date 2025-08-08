@@ -28,6 +28,15 @@ Each task follows a standardized directory structure:
 └── develop-result.md # Development completion report
 ```
 
+## Serena MCP Integration
+
+All commands have been enhanced to support Serena MCP (Model Context Protocol). When Serena MCP tools are available, commands will:
+- Automatically detect and utilize Serena MCP capabilities
+- Prioritize Serena MCP functions for document generation, analysis, and validation
+- Fall back to traditional methods when Serena MCP is unavailable
+
+This ensures optimal performance and integration with advanced MCP tooling while maintaining backward compatibility.
+
 ## Key Command Behaviors
 
 ### /task-init {task_name}
@@ -35,16 +44,19 @@ Each task follows a standardized directory structure:
 - Generates templated requirements.md with sections for overview, background, functional/non-functional requirements, impact analysis, constraints, and system relationships
 - Creates empty design.md, todo.md, and develop-result.md files
 - Creates init.md for capturing raw customer requests
+- **Serena MCP**: Utilizes Serena MCP for file creation and template generation when available
 
 ### /task-req {task_name}
 - Reads raw customer requests from init.md
 - Analyzes and structures the information into requirements.md
 - Creates a draft requirements document from ambiguous requests
+- **Serena MCP**: Utilizes Serena MCP for requirements analysis and document generation when available
 
 ### /task-design {task_name}
 - Reads requirements.md to understand task scope
 - Analyzes existing project structure to maintain consistency
 - Creates comprehensive design.md covering architecture, components, file structure, data design, API design, error handling, testing strategy, and performance/security considerations
+- **Serena MCP**: Utilizes Serena MCP for design document creation, analysis, and validation when available
 
 ### /task-todo {task_name}
 - Reads requirements.md and design.md to understand technical requirements
@@ -52,6 +64,7 @@ Each task follows a standardized directory structure:
 - Performs comprehensive effort estimation for manual implementation by intermediate-level programmers
 - Includes risk factors, buffers, and realistic time estimates for each task
 - Considers dependencies and development efficiency
+- **Serena MCP**: Utilizes Serena MCP for task analysis, effort estimation, and document generation when available
 
 ### /task-develop {task_name}
 - Reads design.md and todo.md to understand implementation requirements
@@ -59,6 +72,7 @@ Each task follows a standardized directory structure:
 - Maintains code quality, follows existing patterns, includes appropriate tests
 - Reports progress after each task completion
 - Creates develop-result.md with implementation overview, changed files, technical details, and completion report
+- **Serena MCP**: Utilizes Serena MCP for code generation, implementation, testing, and validation when available
 
 ## Installation Method
 
@@ -119,5 +133,5 @@ task-*.mdファイルを追加・変更・削除した場合は、必ず以下�
 
 ## 更新履歴
 
-最終更新: 2025-08-07 00:00:00
-更新内容: task-estimateコマンドを廃止し機能をtask-todoに統合。task-developにdevelop-result.md作成機能を追加。コマンド数を6から5に変更
+最終更新: 2025-08-08 00:00:00
+更新内容: 全5つのコマンドにSerena MCP対応を追加。Serena MCPツールが利用可能な場合は優先的に活用し、利用できない場合は従来の方法にフォールバックする機能を実装

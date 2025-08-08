@@ -2,6 +2,10 @@
 
 Claude Codeでタスクベースの開発を行うためのカスタムスラッシュコマンド集です。要件定義→詳細設計→ToDoリスト→実装を段階的に進めることで、品質の高いソフトウェア開発を支援します。
 
+## Serena MCP対応
+
+Serena MCPが利用可能な環境では、自動的に検出して優先的に活用し、分析・検証・実装の精度と効率を向上させます。Serena MCPが利用できない環境でも、従来の方法で問題なく動作します。
+
 ## インストール
 
 1. このリポジトリをクローンします：
@@ -36,6 +40,7 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 - **用途**: 曖昧な要求を構造化された要件に変換
 - **入力ファイル**: `.claude/tasks/{your-task-name}/init.md`
 - **作成ファイル**: `.claude/tasks/{your-task-name}/requirements.md`
+- **Serena MCP**: 要件分析と文書生成で活用
 
 要件定義ファイル `requirements.md` が作成されます。必要に応じて修正してください。
 
@@ -46,6 +51,7 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 - **機能**: 既存システムを分析し、詳細設計を作成
 - **用途**: 要件定義後の技術的設計
 - **作成ファイル**: `.claude/tasks/{your-task-name}/design.md`
+- **Serena MCP**: 設計文書の作成・分析・検証で活用
 
 詳細設計ファイル `design.md` が作成されます。内容を確認し、必要に応じて修正してください。
 
@@ -56,6 +62,7 @@ cp claude-code-task-commands/*.md ~/.claude/commands/
 - **機能**: 詳細設計に基づく実装作業のタスクを分解し、工数見積もりを実施
 - **用途**: 開発作業の具体的な計画立案と中級プログラマが手作業で実装する場合の工数算出
 - **作成ファイル**: `.claude/tasks/{your-task-name}/todo.md`
+- **Serena MCP**: タスク分析・工数見積もり・文書生成で活用
 
 ToDoリストと工数見積もりを統合したファイル `todo.md` が作成されます。各タスクの見積もり時間、リスク要因、バッファを含みます。内容を確認し、必要に応じて修正してください。
 
@@ -66,6 +73,7 @@ ToDoリストと工数見積もりを統合したファイル `todo.md` が作�
 - **機能**: ToDoリストに基づく段階的な実装と開発完了報告書の作成
 - **用途**: 実際の開発作業の実行
 - **作成ファイル**: `.claude/tasks/{your-task-name}/develop-result.md`
+- **Serena MCP**: コード生成・実装・テスト・検証で活用
 
 開発完了後、実装概要、変更ファイル一覧、技術的詳細を含む報告書 `develop-result.md` が作成されます。
 
