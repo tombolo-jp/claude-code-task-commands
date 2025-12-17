@@ -28,14 +28,24 @@ Each task follows a standardized directory structure:
 └── develop-result.md # Development completion report
 ```
 
+## Model Configuration
+
+Each command specifies an appropriate model via Frontmatter for optimal cost-performance balance:
+
+| Command | Model | Model ID | Reason |
+|---------|-------|----------|--------|
+| task-init | **Haiku 4.5** | `claude-haiku-4-5-20251001` | Simple file creation, cost reduction |
+| task-req | Sonnet 4.5 | `claude-sonnet-4-5-20250929` | Balanced requirements analysis |
+| task-design | **Opus 4.5** | `claude-opus-4-5-20251101` | High-precision design required |
+| task-todo | **Opus 4.5** | `claude-opus-4-5-20251101` | High-precision planning and estimation |
+| task-develop | Sonnet 4.5 | `claude-sonnet-4-5-20250929` | Cost-efficient implementation |
+
 ## Serena MCP Integration
 
-All commands have been enhanced to support Serena MCP (Model Context Protocol). When Serena MCP tools are available, commands will:
+All commands support Serena MCP (Model Context Protocol). When Serena MCP tools are available, commands will:
 - Automatically detect and utilize Serena MCP capabilities
 - Prioritize Serena MCP functions for document generation, analysis, and validation
 - Fall back to traditional methods when Serena MCP is unavailable
-
-This ensures optimal performance and integration with advanced MCP tooling while maintaining backward compatibility.
 
 ## Key Command Behaviors
 
@@ -133,5 +143,8 @@ task-*.mdファイルを追加・変更・削除した場合は、必ず以下�
 
 ## 更新履歴
 
-最終更新: 2025-08-08 00:00:00
-更新内容: 全5つのコマンドにSerena MCP対応を追加。Serena MCPツールが利用可能な場合は優先的に活用し、利用できない場合は従来の方法にフォールバックする機能を実装
+最終更新: 2025-12-18 00:00:00
+更新内容: 全5つのコマンドのモデルIDを最新の4.5に更新。Haiku 4.5(`claude-haiku-4-5-20251001`)、Sonnet 4.5(`claude-sonnet-4-5-20250929`)、Opus 4.5(`claude-opus-4-5-20251101`)を使用。
+
+前回更新: 2025-12-17 00:00:00
+更新内容: 全5つのコマンドにFrontmatterによるモデル指定を追加。task-initはhaiku（トークン85-90%削減）、task-design/task-todoはopus（高精度）、task-req/task-developはsonnetを使用。冗長なプロンプト指示を削除し、全体的に簡潔化。
