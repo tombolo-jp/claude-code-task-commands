@@ -8,18 +8,22 @@ allowed-tools: Write, Bash(mkdir:*)
 
 タスク「$ARGUMENTS」の環境を準備します。
 
-## 作成内容
+## 実行手順
 
-1. `.claude/tasks/$ARGUMENTS/` ディレクトリを作成
+### ステップ1: ディレクトリ作成
+Bashツールで以下のコマンドを実行してください:
+```
+mkdir -p .claude/tasks/$ARGUMENTS
+```
 
-2. 以下のファイルを作成:
-
-**init.md**:
+### ステップ2: init.md を作成
+Writeツールで `.claude/tasks/$ARGUMENTS/init.md` を作成してください:
 ```markdown
 <!-- 要件定義の準備をします。このタスクの概要を、簡潔に入力してください。 -->
 ```
 
-**requirements.md**:
+### ステップ3: requirements.md を作成
+Writeツールで `.claude/tasks/$ARGUMENTS/requirements.md` を作成してください:
 ```markdown
 # 要件定義
 
@@ -45,8 +49,5 @@ allowed-tools: Write, Bash(mkdir:*)
 <!-- 既存機能との連携方法 -->
 ```
 
-**design.md, todo.md, develop-result.md**: 空ファイル
-
 ## 完了後
-
-「init.md にタスク概要を入力してください」と表示。
+「init.md にタスク概要を入力してください」と表示してください。

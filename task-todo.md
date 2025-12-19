@@ -11,13 +11,16 @@ description: タスクのToDoリストと工数見積もりを作成
 
 ## 手順
 
-1. 以下のファイルを読み込み、タスクの全体像を把握:
-   - `.claude/tasks/$ARGUMENTS/requirements.md`（要件定義）
-   - `.claude/tasks/$ARGUMENTS/design.md`（詳細設計）
+### ステップ1: ファイル読み込み
+Readツールで以下のファイルを読み込み、タスクの全体像を把握してください:
+- `.claude/tasks/$ARGUMENTS/requirements.md`（要件定義）
+- `.claude/tasks/$ARGUMENTS/design.md`（詳細設計）
 
-2. 実装順序と依存関係を分析し、各タスクの難易度と工数を評価
+### ステップ2: 分析
+実装順序と依存関係を分析し、各タスクの難易度と工数を評価してください。
 
-3. `.claude/tasks/$ARGUMENTS/todo.md` にToDoリストと工数見積もりを作成
+### ステップ3: ToDoリスト作成
+Writeツールで `.claude/tasks/$ARGUMENTS/todo.md` を作成し、ToDoリストと工数見積もりを記載してください。
 
 ## ToDoリスト構成
 
@@ -36,4 +39,4 @@ Serena MCPツールが利用可能な場合は優先的に活用してくださ�
 
 ## 完了後
 
-「ToDoリストと工数見積もりファイルが作成されました。必要に応じて todo.md を修正してください。」と表示。
+「ToDoリストと工数見積もりファイルが作成されました。必要に応じて todo.md を修正してください。」と表示してください。

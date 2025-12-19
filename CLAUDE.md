@@ -51,9 +51,9 @@ All commands support Serena MCP (Model Context Protocol). When Serena MCP tools 
 
 ### /task-init {task_name}
 - Creates `.claude/tasks/{task_name}/` directory structure
-- Generates templated requirements.md with sections for overview, background, functional/non-functional requirements, impact analysis, constraints, and system relationships
-- Creates empty design.md, todo.md, and develop-result.md files
 - Creates init.md for capturing raw customer requests
+- Generates templated requirements.md with sections for overview, background, functional/non-functional requirements, impact analysis, constraints, and system relationships
+- Note: design.md, todo.md, develop-result.md are created by their respective commands (task-design, task-todo, task-develop)
 - **Serena MCP**: Utilizes Serena MCP for file creation and template generation when available
 
 ### /task-req {task_name}
@@ -143,8 +143,8 @@ task-*.mdファイルを追加・変更・削除した場合は、必ず以下�
 
 ## 更新履歴
 
-最終更新: 2025-12-18 00:00:00
-更新内容: 全5つのコマンドのモデルIDを最新の4.5に更新。Haiku 4.5(`claude-haiku-4-5-20251001`)、Sonnet 4.5(`claude-sonnet-4-5-20250929`)、Opus 4.5(`claude-opus-4-5-20251101`)を使用。
+最終更新: 2025-12-19 12:00:00
+更新内容: 全コマンド（task-init, task-design, task-todo, task-develop）のプロンプトをステップバイステップ形式に統一。各ステップで使用するツール（Read/Write/Glob/Grep）を明示し、モデルが確実にファイル操作を実行するよう改善。
 
-前回更新: 2025-12-17 00:00:00
-更新内容: 全5つのコマンドにFrontmatterによるモデル指定を追加。task-initはhaiku（トークン85-90%削減）、task-design/task-todoはopus（高精度）、task-req/task-developはsonnetを使用。冗長なプロンプト指示を削除し、全体的に簡潔化。
+前回更新: 2025-12-19 00:00:00
+更新内容: task-initコマンドのプロンプトを修正。Haikuモデルが確実にファイル作成を実行するよう、ステップバイステップの明確な指示に変更。空ファイル（design.md, todo.md, develop-result.md）の作成は各コマンドに委譲。

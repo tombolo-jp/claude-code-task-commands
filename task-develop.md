@@ -11,13 +11,16 @@ description: 詳細設計とToDoリストに基づいて開発を実行
 
 ## 手順
 
-1. 以下のファイルを読み込み、設計とタスク内容を確認:
-   - `.claude/tasks/$ARGUMENTS/design.md`
-   - `.claude/tasks/$ARGUMENTS/todo.md`
+### ステップ1: ファイル読み込み
+Readツールで以下のファイルを読み込み、設計とタスク内容を確認してください:
+- `.claude/tasks/$ARGUMENTS/design.md`
+- `.claude/tasks/$ARGUMENTS/todo.md`
 
-2. develop-result.mdを初期化（todo.mdからチェックリスト形式で抽出）
+### ステップ2: 報告書初期化
+Writeツールで `.claude/tasks/$ARGUMENTS/develop-result.md` を作成し、todo.mdからチェックリスト形式で抽出した内容で初期化してください。
 
-3. ToDoリストの順序に従って実装
+### ステップ3: 実装
+ToDoリストの順序に従って実装を進めてください。
 
 ## 専門エージェント（Subagent）の活用
 
@@ -73,4 +76,4 @@ Serena MCPツールが利用可能な場合は優先的に活用してくださ�
 
 ## 完了後
 
-「開発作業が完了しました。develop-result.mdに詳細な報告書を作成しました。」と表示。
+「開発作業が完了しました。develop-result.mdに詳細な報告書を作成しました。」と表示してください。
